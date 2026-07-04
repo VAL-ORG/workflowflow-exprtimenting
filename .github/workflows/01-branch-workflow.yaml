@@ -20,7 +20,7 @@ on:
           - "2"
 
 jobs:
-  test:
+  job1:
     runs-on: ubuntu-latest
 
     steps:
