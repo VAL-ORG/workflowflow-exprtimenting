@@ -1,5 +1,6 @@
 name: Simple Python Workflow
 
+
 on:
   workflow_dispatch:
     inputs:
@@ -16,10 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Run Python inline
+        run: |
+          python - <<EOF
+          import sys
 
-      - name: Run script
-        run: python script.py "${{ github.event.inputs.value }}"
+          value = "${{ github.event.inputs.value }}"
+
+          if value == "a":
+              print("1")
+          elif value == "b":
+              print("error")
+          else:
+              print("unknown")
+          EOF
