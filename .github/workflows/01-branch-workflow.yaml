@@ -39,3 +39,8 @@ jobs:
       - name: b + 2
         if: ${{ github.event.inputs.first == 'b' && github.event.inputs.second == '2' }}
         run: echo "Running code for b + 2"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: kraj
+        run: echo "kraj"
