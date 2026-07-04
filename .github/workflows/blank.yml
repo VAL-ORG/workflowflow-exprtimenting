@@ -1,0 +1,26 @@
+name: Input Example
+
+on:
+  workflow_dispatch:
+    inputs:
+      value:
+        description: "Enter a or b"
+        required: true
+        type: choice
+        options:
+          - a
+          - b
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print 1 if input is a
+        if: ${{ github.event.inputs.value == 'a' }}
+        run: echo "1"
+
+      - name: Fail if input is b
+        if: ${{ github.event.inputs.value == 'b' }}
+        run: |
+          echo "Error: input cannot be 'b'"
+          exit 1
