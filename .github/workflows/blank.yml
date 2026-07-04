@@ -16,8 +16,8 @@ jobs:
 
     steps:
       - name: create-replica
-        if: ${{ github.event.inputs.value == 'create-replica and other stuff' }}
-        run: echo "create-replica"
+        if: ${{ github.event.inputs.value == 'create-replica' }}
+        run: echo "create-replica  and other stuff"
 
       - name: create-local-repo
         if: ${{ github.event.inputs.value == 'create-local-repo' }}
