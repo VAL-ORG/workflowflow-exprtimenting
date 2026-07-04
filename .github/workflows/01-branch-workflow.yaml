@@ -1,0 +1,41 @@
+name: branch-workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      first:
+        description: "Choose a or b"
+        required: true
+        type: choice
+        options:
+          - a
+          - b
+
+      second:
+        description: "Choose 1 or 2"
+        required: true
+        type: choice
+        options:
+          - "1"
+          - "2"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: a + 1
+        if: ${{ github.event.inputs.first == 'a' && github.event.inputs.second == '1' }}
+        run: echo "Running code for a + 1"
+
+      - name: a + 2
+        if: ${{ github.event.inputs.first == 'a' && github.event.inputs.second == '2' }}
+        run: echo "Running code for a + 2"
+
+      - name: b + 1
+        if: ${{ github.event.inputs.first == 'b' && github.event.inputs.second == '1' }}
+        run: echo "Running code for b + 1"
+
+      - name: b + 2
+        if: ${{ github.event.inputs.first == 'b' && github.event.inputs.second == '2' }}
+        run: echo "Running code for b + 2"
