@@ -8,19 +8,18 @@ on:
         required: true
         type: choice
         options:
-          - a
-          - b
+          - create-replica
+          - create-local-repo
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print 1 if input is a
-        if: ${{ github.event.inputs.value == 'a' }}
-        run: echo "1"
+      - name: create-replica
+        if: ${{ github.event.inputs.value == 'create-replica and other stuff' }}
+        run: echo "create-replica"
 
-      - name: Fail if input is b
-        if: ${{ github.event.inputs.value == 'b' }}
-        run: |
-          echo "Error: input cannot be 'b'"
-          exit 1
+      - name: create-local-repo
+        if: ${{ github.event.inputs.value == 'create-local-repo' }}
+        run: echo "create-local-repo and other stuff"
+
