@@ -1,11 +1,9 @@
 name: setting-variable
 on:
   workflow_dispatch:
-env:
-  MY_VAR: "Hello from workflow"
 jobs:
   show-variable:
     runs-on: ubuntu-latest
     steps:
       - name: Show variable in bash
-        run: echo "Value of MY_VAR is"
+        run: echo value
