@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: Show variable value
-        run: 'echo "Value of MY_VAR is: $MY_VAR"'
+        run: echo something
