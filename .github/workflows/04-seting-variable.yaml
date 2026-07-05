@@ -10,8 +10,9 @@ jobs:
   show-variable:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Show variable value -step 1
-        run: echo something
-      - name: Show variable value -step2
-        run: echo "Value of MY_VAR is: $MY_VAR"
+steps:
+  - name: First echo
+    run: echo "something"
+
+  - name: Print env variable
+    run: echo "Value of MY_VAR is: $MY_VAR"
