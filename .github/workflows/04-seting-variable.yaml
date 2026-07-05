@@ -1,10 +1,10 @@
-name: Show Variable Example
+name: seting-variable
 
 on:
   workflow_dispatch:
 
 env:
-  MY_VAR: "Hello from workflow"
+  MY_VAR: "Hello from workflow-jelena"
 
 jobs:
   show-variable:
