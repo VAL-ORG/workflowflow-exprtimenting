@@ -1,0 +1,40 @@
+name: calculate-numbers
+
+on:
+  workflow_dispatch:
+    inputs:
+      num1:
+        description: 'Enter the first number'
+        required: true
+        default: '5'
+      num2:
+        description: 'Enter the second number'
+        required: true
+        default: '10'
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Python math operations
+        run: |
+          python -c "
+          import os
+
+          # Read inputs from the environment and convert them to floats
+          n1 = float(os.environ.get('NUMBER_ONE'))
+          n2 = float(os.environ.get('NUMBER_TWO'))
+
+          # Perform calculations
+          total_sum = n1 + n2
+          product = n1 * n2
+
+          # Print the results
+          print(f'First number: {n1}')
+          print(f'Second number: {n2}')
+          print(f'Sum: {total_sum}')
+          print(f'Product (num1 * num2): {product}')
+          "
+        env:
+          NUMBER_ONE: ${{ github.event.inputs.num1 }}
+          NUMBER_TWO: ${{ github.event.inputs.num2 }}
