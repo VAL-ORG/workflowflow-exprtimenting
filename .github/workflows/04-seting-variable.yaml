@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Show variable value
+      - name: Show variable value -step 1
         run: echo something
+      - name: Show variable value -step2
+        run: echo something2
