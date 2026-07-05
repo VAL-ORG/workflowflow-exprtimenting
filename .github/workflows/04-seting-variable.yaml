@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MY_VAR: "Hello from workflow"
+      MY_VAR: "Hello from workflow66"
 
     steps:
       - name: Print in bash
