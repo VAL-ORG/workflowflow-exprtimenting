@@ -1,19 +1,18 @@
-name: Show Variable Example
+name: Test Variable
 
 on:
   workflow_dispatch:
 
-env:
-  MY_VAR: "Hello from workflow"
-
 jobs:
-  show-variable:
+  test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Show variable in bash
-        run: echo "Value of MY_VAR is: $MY_VAR"
+    env:
+      MY_VAR: "Hello from workflow"
 
-      - name: Show variable in Python
-        run: |
-          python3 -c "import os; print('Value of MY_VAR is:', os.getenv('MY_VAR'))"
+    steps:
+      - name: Print in bash
+        run: echo "Bash: $MY_VAR"
+
+      - name: Print in Python
+        run: python3 -c "import os; print('Python:', os.getenv('MY_VAR'))"
