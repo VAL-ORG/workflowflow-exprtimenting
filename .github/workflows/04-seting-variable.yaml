@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Show variable in bash
         run: echo "Value of MY_VAR is: $MY_VAR"
+        
       - name: Show variable in Python
         run: |
           python3 -c "import os; print('Value of MY_VAR is:', os.getenv('MY_VAR'))"
