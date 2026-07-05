@@ -7,12 +7,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      MY_VAR: "Hello from workflow66"
-
     steps:
-      - name: Print in bash
+      - name: Print variable in bash
+        env:
+          MY_VAR: "Hello from workflow"
         run: echo "Bash: $MY_VAR"
 
-      - name: Print in Python
+      - name: Print variable in Python
+        env:
+          MY_VAR: "Hello from workflow"
         run: python3 -c "import os; print('Python:', os.getenv('MY_VAR'))"
