@@ -14,4 +14,4 @@ jobs:
       - name: Show variable value -step 1
         run: echo something
       - name: Show variable value -step2
-        run: echo something2
+        run: echo "Value of MY_VAR is: $MY_VAR"
