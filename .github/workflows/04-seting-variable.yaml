@@ -1,4 +1,4 @@
-name: seting-variable
+name: setting-variable
 
 on:
   workflow_dispatch:
@@ -9,10 +9,13 @@ env:
 jobs:
   show-variable:
     runs-on: ubuntu-latest
-
     steps:
       - name: First echo
         run: echo "something"
 
       - name: Print env variable
-        run: echo "Value of MY_VAR is: $MY_VAR"
+        run: echo $MY_VAR
+
+      - name: Print env variable using Python
+        run: |
+          python -c "import os; print(os.environ.get('MY_VAR'))"
